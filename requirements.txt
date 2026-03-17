@@ -1,0 +1,5 @@
+python
+postgreSQL
+fastapi
+uvicorn
+pydantic
