@@ -17,7 +17,7 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
         raise HTTPException(status_code=401, detail="Invalid email or password")
 
     # 3️⃣ verify password
-    if not pwd_context.verify(user.password, existing_user.password):
+    if not pwd_context.verify(user.password[:72], existing_user.password):
         raise HTTPException(status_code=401, detail="Invalid email or password")
 
     # 4️⃣ ADD JWT TOKEN
