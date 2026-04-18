@@ -15,7 +15,7 @@ def reg(user: UserReg, db: Session = Depends(get_db)):
     if existing_user:
         raise HTTPException(status_code=409, detail="Email already registered")
 
-    hash_password = pwd_context.hash(user.password)
+    hash_password = pwd_context.hash(user.password[:72])
 
     new_user = Users(
         name=user.name,
