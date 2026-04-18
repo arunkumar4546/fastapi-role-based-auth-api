@@ -18,7 +18,7 @@ def create_admin(db: Session):
         print("Admin already exists")
         return
 
-    hashed_pw = pwd.hash(ADMIN_PASSWORD)
+    hashed_pw = pwd.hash(ADMIN_PASSWORD[:72])
 
     new_admin = Users(
         name="Admin",
